@@ -1,5 +1,44 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
+    final static String fileName = "data/data.kfc";
+
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        List<String> languages0 = new ArrayList<>();
+        List<String> languages1 = new ArrayList<>();
+        languages0.add("en");
+        languages0.add("fr");
+        languages1.add("jp");
+        languages1.add("hr");
+
+        Tool[] tools = {
+                new Tool(null, "machanick", null, 2, languages0),
+                new Tool("Bosh", "automatic", "A new company", 5, languages1)
+        };
+
+        for (Tool it : tools)
+            System.out.println(it.toString());
+
+        try {
+            var out = new ObjectOutputStream(new FileOutputStream(fileName));
+            Tool.writeTools(out);
+            out.close();
+
+            var in = new ObjectInputStream(new FileInputStream(fileName));
+            Tool.readTools(in);
+            in.close();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        System.out.println("\n------------------------\n");
+
+        for (Tool it : tools)
+            System.out.println(it.toString());
     }
 }
