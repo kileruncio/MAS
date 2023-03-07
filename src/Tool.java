@@ -46,16 +46,18 @@ public class Tool implements Serializable {
         this.numberOfTools++;
     }
 
-    public static void clearDifferentTools() {
-        tools = new ArrayList<>();
-    }
-
     public static void writeTools(ObjectOutputStream stream) throws IOException {
         stream.writeObject(tools);
     }
 
     public static void readTools(ObjectInputStream stream) throws IOException, ClassNotFoundException {
-        tools = (ArrayList<Tool>) stream.readObject();
+        ArrayList<Tool> tmp = (ArrayList<Tool>) stream.readObject();
+        for(Tool t : tmp)
+            tools.add(t);
+    }
+
+    public static String getFromTools(){
+        return tools.toString();
     }
 
     public String getOwner() {
