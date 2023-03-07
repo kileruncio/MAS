@@ -24,10 +24,16 @@ public class App {
         for (Tool it : tools)
             System.out.println(it.toString());
 
+        System.out.println(Tool.numberOfDifferentTools());
+        System.out.println("\n------------------------");
+
         try {
             var out = new ObjectOutputStream(new FileOutputStream(fileName));
             Tool.writeTools(out);
             out.close();
+
+            Tool.clearDifferentTools();
+            System.out.println(Tool.numberOfDifferentTools());
 
             var in = new ObjectInputStream(new FileInputStream(fileName));
             Tool.readTools(in);
@@ -36,9 +42,11 @@ public class App {
             exc.printStackTrace();
         }
 
-        System.out.println("\n------------------------\n");
+        System.out.println("------------------------\n");
 
         for (Tool it : tools)
             System.out.println(it.toString());
+
+        System.out.println(Tool.numberOfDifferentTools());
     }
 }

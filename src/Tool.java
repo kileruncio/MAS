@@ -14,6 +14,7 @@ public class Tool implements Serializable {
     private LocalDateTime dateOfAcusition;
     private List<String> languagesOfInstruction;
     private static List<Tool> tools = new ArrayList<>();
+    private static int minPeopleToUse = 1;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
         this.owner = owner;
@@ -22,6 +23,7 @@ public class Tool implements Serializable {
         this.numberOfTools = numberOfTools;
         this.languagesOfInstruction = languagesOfInstruction;
         this.dateOfAcusition = LocalDateTime.now();
+        tools.add(this);
     }
 
     public static void addTool(Tool tool) {
@@ -42,6 +44,10 @@ public class Tool implements Serializable {
 
     public void increseNumberOfATool() {
         this.numberOfTools++;
+    }
+
+    public static void clearDifferentTools() {
+        tools = new ArrayList<>();
     }
 
     public static void writeTools(ObjectOutputStream stream) throws IOException {
