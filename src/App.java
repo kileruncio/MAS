@@ -18,11 +18,14 @@ public class App {
 
         Tool[] tools = {
                 new Tool(null, "machanick", null, 2, languages0),
-                new Tool("Bosh", "automatic", "A new company", 5, languages1)
+                new Tool("Bosh", "automatic", "A new company", 5, languages1),
+                new Hammer("me", "one-hand", null, 1, new ArrayList<>())
         };
 
-        for (Tool it : tools)
+        for (Tool it : tools){
             System.out.println(it.toString());
+            System.out.println(it.use());
+        }
 
         System.out.println(Tool.numberOfDifferentTools());
 

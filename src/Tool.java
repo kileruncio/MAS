@@ -38,6 +38,14 @@ public class Tool implements Serializable {
         return tools.size();
     }
 
+    public int getNumberOfInstructions(){
+        return this.numberOfTools * this.languagesOfInstruction.size();
+    }
+
+    public String use(){
+        return "Usage, usage, usage"; 
+    }
+
     public void increseNumberOfATool(int number) {
         this.numberOfTools += number;
     }
