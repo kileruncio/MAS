@@ -15,6 +15,7 @@ public class Tool implements Serializable {
     private List<String> languagesOfInstruction;
     private static List<Tool> tools = new ArrayList<>();
     private static int minPeopleToUse = 1;
+    private Toolbox toolbox;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
         this.owner = owner;
@@ -24,6 +25,17 @@ public class Tool implements Serializable {
         this.languagesOfInstruction = languagesOfInstruction;
         this.dateOfAcusition = LocalDateTime.now();
         tools.add(this);
+    }
+
+    public void addToToolbox(Toolbox toolbox) throws Exception {
+        if (this.toolbox == null)
+            this.toolbox = toolbox;
+        else
+            throw new Exception("already in a toolbox");
+    }
+
+    public void removeFromToolbox() {
+        this.toolbox = null;
     }
 
     public static void addTool(Tool tool) {
@@ -38,12 +50,12 @@ public class Tool implements Serializable {
         return tools.size();
     }
 
-    public int getNumberOfInstructions(){
+    public int getNumberOfInstructions() {
         return this.numberOfTools * this.languagesOfInstruction.size();
     }
 
-    public String use(){
-        return "Usage, usage, usage"; 
+    public String use() {
+        return "Usage, usage, usage";
     }
 
     public void increseNumberOfATool(int number) {
@@ -60,11 +72,11 @@ public class Tool implements Serializable {
 
     public static void readTools(ObjectInputStream stream) throws IOException, ClassNotFoundException {
         ArrayList<Tool> tmp = (ArrayList<Tool>) stream.readObject();
-        for(Tool t : tmp)
+        for (Tool t : tmp)
             tools.add(t);
     }
 
-    public static String getFromTools(){
+    public static String getFromTools() {
         return tools.toString();
     }
 
