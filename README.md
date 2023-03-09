@@ -12,8 +12,8 @@
   - [x] Przesłonięcie/przeciążenie
 
 ## MP2
- - [] „Zwykła”
- - [] Z atrybutem
- - [] Kwalifikowana
- - [] Kompozycja
+ - [ ] „Zwykła”
+ - [ ] Z atrybutem
+ - [ ] Kwalifikowana
+ - [ ] Kompozycja
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
