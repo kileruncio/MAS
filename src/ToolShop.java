@@ -16,5 +16,4 @@ public class ToolShop {
     public ArrayList<Transaction> getTransactions() {
         return this.transactions;
     }
-    // kompozycja z tool
 }

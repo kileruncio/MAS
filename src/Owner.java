@@ -5,7 +5,6 @@ import java.util.TreeMap;
 public class Owner {
     private String name;
     private String address;
-    private ArrayList<Tool> ownedTool;
     private ArrayList<Transaction> transactions;
     private Map<String, Toolbox> toolboxes = new TreeMap<>();
 
@@ -26,6 +25,10 @@ public class Owner {
     public void addToolbox(String name, Toolbox toolbox) throws Exception {
         toolboxes.put(name, toolbox);
         toolbox.setOwner(this);
+    }
+
+    public Map<String, Toolbox> getToolboxes() {
+        return this.toolboxes;
     }
     // kwalifikowana z toolbox
 }

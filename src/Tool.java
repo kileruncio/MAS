@@ -13,6 +13,7 @@ public class Tool implements Serializable {
     private int numberOfTools;
     private LocalDateTime dateOfAcusition;
     private List<String> languagesOfInstruction;
+    private List<Part> parts;
     private static List<Tool> tools = new ArrayList<>();
     private static int minPeopleToUse = 1;
     private Toolbox toolbox;
@@ -25,6 +26,7 @@ public class Tool implements Serializable {
         this.languagesOfInstruction = languagesOfInstruction;
         this.dateOfAcusition = LocalDateTime.now();
         this.toolbox = null;
+        this.parts = new ArrayList<>();
         tools.add(this);
     }
 
@@ -34,6 +36,17 @@ public class Tool implements Serializable {
             this.toolbox.addTool(this);
         } else
             throw new Exception("already in a toolbox");
+    }
+
+    public void addPart(Part part) throws Exception {
+        if (!this.parts.contains(part))
+            this.parts.add(part);
+        else
+            throw new Exception("Part cannot be added two times to one tool");
+    }
+
+    public List<Part> getParts() {
+        return this.parts;
     }
 
     public void removeFromToolbox() {

@@ -8,7 +8,7 @@ import java.util.List;
 public class App {
     final static String fileName = "data/data.kfc";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         List<String> languages0 = new ArrayList<>();
         List<String> languages1 = new ArrayList<>();
         languages0.add("en");
@@ -18,7 +18,7 @@ public class App {
 
         Tool[] tools = {
                 new Tool(null, "machanick", null, 2, languages0),
-                new Tool("Bosh", "automatic", "A new company", 5, languages1),
+                new Tool("Bosh", "automatic", "producer", 5, languages1),
                 new Hammer("me", "one-hand", null, 1, new ArrayList<>())
         };
 
@@ -52,7 +52,12 @@ public class App {
         Owner owner1 = new Owner("alice", "xx-343-yt");
 
         // normal
-        tools[0].addToToolbox(toolbox1);
+        try {
+            tools[0].addToToolbox(toolbox1);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
         System.out.println(toolbox1.getTools().toString());
 
         // attribute
@@ -66,7 +71,17 @@ public class App {
         } catch (Exception exc) {
             exc.printStackTrace();
         }
-        
+
+        System.out.println("Owner has: " + owner1.getToolboxes().toString());
+
+        // composition
+        try {
+            Part.createPart("screw", tools[0]);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        System.out.println("Parts: " + tools[0].getParts().toString());
 
     }
 }
