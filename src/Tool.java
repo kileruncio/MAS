@@ -24,13 +24,15 @@ public class Tool implements Serializable {
         this.numberOfTools = numberOfTools;
         this.languagesOfInstruction = languagesOfInstruction;
         this.dateOfAcusition = LocalDateTime.now();
+        this.toolbox = null;
         tools.add(this);
     }
 
     public void addToToolbox(Toolbox toolbox) throws Exception {
-        if (this.toolbox == null)
+        if (this.toolbox == null){
             this.toolbox = toolbox;
-        else
+            this.toolbox.addTool(this);
+        }else
             throw new Exception("already in a toolbox");
     }
 

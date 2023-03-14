@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 
 public class Toolbox {
-    private String owner;
+    private Owner owner;
     private ArrayList<Tool> tools;
 
-    public Toolbox(String owner) {
+    public Toolbox() {
+        this.owner = null;
+        this.tools = new ArrayList<>();
+    }
+
+    public Toolbox(Owner owner) {
         this.owner = owner;
         this.tools = new ArrayList<>();
     }
@@ -13,7 +18,11 @@ public class Toolbox {
         this.tools.add(tool);
     }
 
-    public String getOwner() {
+    public Owner getOwner() {
         return this.owner;
+    }
+
+    public ArrayList<Tool> getTools(){
+        return this.tools;
     }
 }
