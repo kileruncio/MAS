@@ -14,7 +14,7 @@
 ## MP2
  - [x] „Zwykła”
  - [x] Z atrybutem
- - [ ] Kwalifikowana
+ - [x] Kwalifikowana
  - [ ] Kompozycja
 
  

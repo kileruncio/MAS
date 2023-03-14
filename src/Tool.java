@@ -29,10 +29,10 @@ public class Tool implements Serializable {
     }
 
     public void addToToolbox(Toolbox toolbox) throws Exception {
-        if (this.toolbox == null){
+        if (this.toolbox == null) {
             this.toolbox = toolbox;
             this.toolbox.addTool(this);
-        }else
+        } else
             throw new Exception("already in a toolbox");
     }
 

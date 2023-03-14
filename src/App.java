@@ -22,7 +22,7 @@ public class App {
                 new Hammer("me", "one-hand", null, 1, new ArrayList<>())
         };
 
-        for (Tool it : tools){
+        for (Tool it : tools) {
             System.out.println(it.toString());
             System.out.println(it.use());
         }
@@ -46,19 +46,27 @@ public class App {
         System.out.println(Tool.numberOfDifferentTools());
         System.out.println(Tool.getFromTools());
 
-//-----------------------MP2-----------------------
+        // -----------------------MP2-----------------------
         Toolbox toolbox1 = new Toolbox();
         ToolShop toolShop1 = new ToolShop("cheap");
         Owner owner1 = new Owner("alice", "xx-343-yt");
 
-        //zwykla
+        // normal
         tools[0].addToToolbox(toolbox1);
         System.out.println(toolbox1.getTools().toString());
 
-        //z atrybutem
+        // attribute
         Transaction transaction = new Transaction(48.24, owner1, toolShop1);
         System.out.println(owner1.getTransactions().toString());
         System.out.println(toolShop1.getTransactions().toString());
+
+        // aggravated
+        try {
+            owner1.addToolbox("basic", toolbox1);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+        
 
     }
 }

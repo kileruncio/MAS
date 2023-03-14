@@ -22,7 +22,14 @@ public class Toolbox {
         return this.owner;
     }
 
-    public ArrayList<Tool> getTools(){
+    public ArrayList<Tool> getTools() {
         return this.tools;
+    }
+
+    public void setOwner(Owner owner) throws Exception {
+        if (this.owner == null)
+            this.owner = owner;
+        else
+            throw new Exception("Already owned by: " + this.owner.toString());
     }
 }

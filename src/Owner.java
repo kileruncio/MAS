@@ -15,12 +15,17 @@ public class Owner {
         this.transactions = new ArrayList<>();
     }
 
-    public void addTransaction(Transaction transaction){
+    public void addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
     }
 
-    public ArrayList<Transaction> getTransactions(){
+    public ArrayList<Transaction> getTransactions() {
         return this.transactions;
     }
-    //kompozycja z toolbox
+
+    public void addToolbox(String name, Toolbox toolbox) throws Exception {
+        toolboxes.put(name, toolbox);
+        toolbox.setOwner(this);
+    }
+    // kwalifikowana z toolbox
 }
