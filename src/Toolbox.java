@@ -14,8 +14,11 @@ public class Toolbox {
         this.tools = new ArrayList<>();
     }
 
-    public void addTool(Tool tool) {
-        this.tools.add(tool);
+    public void addTool(Tool tool) throws Exception {
+        if (!this.tools.contains(tool))
+            this.tools.add(tool);
+        else
+            throw new Exception("Tool already in the toolbox");
     }
 
     public Owner getOwner() {

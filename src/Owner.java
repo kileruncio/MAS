@@ -23,8 +23,12 @@ public class Owner {
     }
 
     public void addToolbox(String name, Toolbox toolbox) throws Exception {
-        toolboxes.put(name, toolbox);
-        toolbox.setOwner(this);
+        if (toolboxes.get(name) == null) {
+            toolboxes.put(name, toolbox);
+            toolbox.setOwner(this);
+        }else
+            throw new Exception("Aleady in collection");
+
     }
 
     public Map<String, Toolbox> getToolboxes() {
