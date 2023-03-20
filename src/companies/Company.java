@@ -9,7 +9,7 @@ public abstract class Company {
         this.name = name;
     }
 
-    public abstract double getIncome();
+    public abstract double getProfit();
 
     public String getName() {
         return this.name;

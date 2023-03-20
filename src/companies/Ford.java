@@ -9,8 +9,8 @@ public class Ford extends Company {
     }
 
     @Override
-    public double getIncome() {
-        return income;
+    public double getProfit() {
+        return income * 0.7;
     }
     
 }

@@ -21,7 +21,7 @@
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
 
 ## MP3
- - [ ] Klasa abstrakcyjna i polimorficzne wołanie metod
+ - [x] Klasa abstrakcyjna i polimorficzne wołanie metod
  - [ ] Overlapping
  - [ ] Wielodziedziczenie
  - [ ] Wieloaspektowe
