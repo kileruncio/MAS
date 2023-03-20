@@ -1,6 +1,7 @@
 package companies;
 
 import java.util.EnumSet;
+import java.util.List;
 
 public class Employee {
     private String name;
@@ -9,11 +10,11 @@ public class Employee {
 
     private EnumSet<EmployeeType> employeeType;
 
-    public Employee(String name, boolean inWork, double salary, EnumSet<EmployeeType> employeeType) {
+    public Employee(String name, boolean inWork, double salary, List<EmployeeType> employeeType) {
         this.name = name;
         this.inWork = inWork;
         this.salary = salary;
-        this.employeeType = employeeType;
+        this.employeeType = EnumSet.copyOf(employeeType);
     }
 
     public String getName() {

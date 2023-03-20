@@ -3,9 +3,13 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 
 import companies.Corporation;
+import companies.Employee;
+import companies.EmployeeType;
 import companies.Company;
 import companies.SmallBuisness;
 import tool.Hammer;
@@ -96,11 +100,20 @@ public class App {
 
         // -----------------------MP3-----------------------
 
+        // abstract & polimorfizm
         ArrayList<Company> companies = new ArrayList<>();
         companies.add(new SmallBuisness("Topolowa 8, 00-999 Warcaby", "Wyroby Tomka"));
         companies.add(new Corporation("USA", "Nivea"));
 
         for(Company company : companies)
-            System.out.println(company.getProfit());
+            System.out.println("Profit of a company: " + company.getProfit());
+
+        // overlapping
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Employee)));
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Student, EmployeeType.Underage)));
+
+        for (Employee employee: employees)
+            System.out.println("Real salary: " + employee.getRealSalary());
     }
 }
