@@ -1,9 +1,9 @@
 package companies;
 
-public class Alpabet extends Company {
+public class Corporation extends Company {
     private double income;
 
-    public Alpabet(String address, String name) {
+    public Corporation(String address, String name) {
         super(address, name);
         this.income = Math.random() * 100000;
     }

@@ -1,9 +1,9 @@
 package companies;
 
-public class Ford extends Company {
+public class SmallBuisness extends Company {
     private double income;
 
-    public Ford(String address, String name) {
+    public SmallBuisness(String address, String name) {
         super(address, name);
         this.income = Math.random() * 1000;
     }

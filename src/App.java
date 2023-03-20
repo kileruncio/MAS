@@ -5,6 +5,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import companies.Corporation;
+import companies.Company;
+import companies.SmallBuisness;
 import tool.Hammer;
 import tool.Owner;
 import tool.Part;
@@ -91,8 +94,13 @@ public class App {
 
         System.out.println("Parts: " + tools[0].getParts().toString());
 
+        // -----------------------MP3-----------------------
 
-         // -----------------------MP3-----------------------
+        ArrayList<Company> companies = new ArrayList<>();
+        companies.add(new SmallBuisness("Topolowa 8, 00-999 Warcaby", "Wyroby Tomka"));
+        companies.add(new Corporation("USA", "Nivea"));
 
+        for(Company company : companies)
+            System.out.println(company.getProfit());
     }
 }
