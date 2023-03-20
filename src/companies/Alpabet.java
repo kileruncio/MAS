@@ -5,12 +5,12 @@ public class Alpabet extends Company {
 
     public Alpabet(String address, String name) {
         super(address, name);
-        this.income = Math.random()*100000;
+        this.income = Math.random() * 100000;
     }
 
     @Override
     public double getProfit() {
         return income * 0.3;
     }
-    
+
 }

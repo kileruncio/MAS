@@ -5,12 +5,12 @@ public class Ford extends Company {
 
     public Ford(String address, String name) {
         super(address, name);
-        this.income = Math.random()*1000;
+        this.income = Math.random() * 1000;
     }
 
     @Override
     public double getProfit() {
         return income * 0.7;
     }
-    
+
 }

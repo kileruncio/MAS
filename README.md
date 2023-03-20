@@ -22,7 +22,7 @@ _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. z
 
 ## MP3
  - [x] Klasa abstrakcyjna i polimorficzne wołanie metod
- - [ ] Overlapping
+ - [x] Overlapping
  - [ ] Wielodziedziczenie
  - [ ] Wieloaspektowe
  - [ ] Dynamiczne
