@@ -4,12 +4,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 
 import companies.Corporation;
 import companies.Employee;
 import companies.EmployeeType;
+import companies.OnePersonBuisness;
 import companies.Company;
 import companies.SmallBuisness;
 import tool.Hammer;
@@ -105,7 +105,7 @@ public class App {
         companies.add(new SmallBuisness("Topolowa 8, 00-999 Warcaby", "Wyroby Tomka"));
         companies.add(new Corporation("USA", "Nivea"));
 
-        for(Company company : companies)
+        for (Company company : companies)
             System.out.println("Profit of a company: " + company.getProfit());
 
         // overlapping
@@ -113,7 +113,13 @@ public class App {
         employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Employee)));
         employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Student, EmployeeType.Underage)));
 
-        for (Employee employee: employees)
+        for (Employee employee : employees)
             System.out.println("Real salary: " + employee.getRealSalary());
+
+        // multiheritage
+        OnePersonBuisness wyrobyKrawieckie = new OnePersonBuisness("Taka brama. 07-007 Bulb", "Wyroby Krawieckie", 1993, 0.17);
+        System.out.println("Wiek: " + wyrobyKrawieckie.getAge());
+        System.out.println("Zarobek: " + wyrobyKrawieckie.getProfit());
+        System.out.println("Pieniądze po podatku: " + wyrobyKrawieckie.moneyAfterTax());
     }
 }
