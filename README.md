@@ -24,5 +24,5 @@ _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. z
  - [x] Klasa abstrakcyjna i polimorficzne wołanie metod
  - [x] Overlapping
  - [x] Wielodziedziczenie
- - [ ] Wieloaspektowe
+ - [x] Wieloaspektowe
  - [ ] Dynamiczne

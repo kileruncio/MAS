@@ -12,6 +12,9 @@ import companies.EmployeeType;
 import companies.OnePersonBuisness;
 import companies.Company;
 import companies.SmallBuisness;
+import games.BoardGame;
+import games.DigitalGame;
+import games.Game;
 import tool.Hammer;
 import tool.Owner;
 import tool.Part;
@@ -121,5 +124,20 @@ public class App {
         System.out.println("Wiek: " + wyrobyKrawieckie.getAge());
         System.out.println("Zarobek: " + wyrobyKrawieckie.getProfit());
         System.out.println("Pieniądze po podatku: " + wyrobyKrawieckie.moneyAfterTax());
+
+        // multiaspects
+        ArrayList<Game> games = new ArrayList<>();
+        games.add(new BoardGame("lego", 120.0, 3));
+        games.add(new DigitalGame("EA", 260.0, "at least one brain"));
+
+        for (Game game : games) {
+            if (game.hasNumberOfRequiredPlayers())
+                System.out.println("Liczba wymaganych graczy: " + game.getNumberOfRequiredPlayers());
+            else if (game.hasRequirements())
+                System.out.println("Wymagania: " + game.getRequirements());
+        }
+
+        //dynamic
+        
     }
 }
