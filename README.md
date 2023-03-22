@@ -25,4 +25,4 @@ _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. z
  - [x] Overlapping
  - [x] Wielodziedziczenie
  - [x] Wieloaspektowe
- - [ ] Dynamiczne
+ - [x] Dynamiczne

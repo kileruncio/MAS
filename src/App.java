@@ -13,8 +13,11 @@ import companies.OnePersonBuisness;
 import companies.Company;
 import companies.SmallBuisness;
 import games.BoardGame;
+import games.Controler;
 import games.DigitalGame;
 import games.Game;
+import games.Guitar;
+import games.Keyboard;
 import tool.Hammer;
 import tool.Owner;
 import tool.Part;
@@ -137,7 +140,12 @@ public class App {
                 System.out.println("Wymagania: " + game.getRequirements());
         }
 
-        //dynamic
-        
+        // dynamic
+        Controler controler = new Keyboard("MSI", 2137, "chiness");
+        System.out.println(controler.toString());
+        controler = new Guitar(controler, 2);
+        System.out.println(controler.toString());
+        controler = new Keyboard(controler, "English simplified");
+        System.out.println(controler.toString());
     }
 }
