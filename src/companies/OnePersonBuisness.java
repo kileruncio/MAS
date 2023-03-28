@@ -3,6 +3,8 @@ package companies;
 import java.time.LocalDateTime;
 
 public class OnePersonBuisness extends SmallBuisness implements companies.Personable {
+    // multiheritage
+    // Company -> SmallBuisness -> OnePersonBuisness + companies.Personable
     private int yearOfBirth;
     private double tax;
 
