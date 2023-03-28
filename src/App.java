@@ -116,14 +116,15 @@ public class App {
 
         // overlapping
         ArrayList<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Employee)));
-        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.Student, EmployeeType.Underage)));
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.EMPLOYEE), true));
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.STUDENT, EmployeeType.UNDERAGE), true));
 
         for (Employee employee : employees)
             System.out.println("Real salary: " + employee.getRealSalary());
 
         // multiheritage
-        OnePersonBuisness wyrobyKrawieckie = new OnePersonBuisness("Taka brama. 07-007 Bulb", "Wyroby Krawieckie", 1993, 0.17);
+        OnePersonBuisness wyrobyKrawieckie = new OnePersonBuisness("Taka brama. 07-007 Bulb", "Wyroby Krawieckie", 1993,
+                0.17);
         System.out.println("Wiek: " + wyrobyKrawieckie.getAge());
         System.out.println("Zarobek: " + wyrobyKrawieckie.getProfit());
         System.out.println("Pieniądze po podatku: " + wyrobyKrawieckie.moneyAfterTax());
