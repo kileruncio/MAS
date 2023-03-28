@@ -13,12 +13,14 @@ public abstract class Game {
     }
 
     public Game(String producer, double price, int numberOfRequiredPlayers){
+        // multiplayer
         this.producer = producer;
         this.price = price;
         this.numberOfRequiredPlayers = numberOfRequiredPlayers;
     }
 
     public Game(String producer, double price, String requirements){
+        // digital
         this.producer = producer;
         this.price = price;
         this.requirements = requirements;

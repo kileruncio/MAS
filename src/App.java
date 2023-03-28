@@ -12,9 +12,9 @@ import companies.EmployeeType;
 import companies.OnePersonBuisness;
 import companies.Company;
 import companies.SmallBuisness;
-import games.BoardGame;
+import games.BoardMultiplayerGame;
 import games.Controler;
-import games.DigitalGame;
+import games.FabularDigitalGame;
 import games.Game;
 import games.Guitar;
 import games.Keyboard;
@@ -117,7 +117,8 @@ public class App {
         // overlapping
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.EMPLOYEE), true));
-        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.STUDENT, EmployeeType.UNDERAGE), true));
+        employees.add(
+                new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.STUDENT, EmployeeType.UNDERAGE), true));
 
         for (Employee employee : employees)
             System.out.println("Real salary: " + employee.getRealSalary());
@@ -131,8 +132,8 @@ public class App {
 
         // multiaspects
         ArrayList<Game> games = new ArrayList<>();
-        games.add(new BoardGame("lego", 120.0, 3));
-        games.add(new DigitalGame("EA", 260.0, "at least one brain"));
+        games.add(new BoardMultiplayerGame("lego", 120.0, 3, "dixit", 300));
+        games.add(new FabularDigitalGame("EA", 260.0, "at least one brain", 4));
 
         for (Game game : games) {
             if (game.hasNumberOfRequiredPlayers())
