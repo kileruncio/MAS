@@ -19,3 +19,13 @@
 
  
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
+
+
+## MP4
+ - [x] Atrybutu
+ - [x] Unique
+ - [x] Subset
+ - [x] Ordered
+ - [x] Bag
+ - [x] Xor
+ - [x] Ograniczenie Własne
