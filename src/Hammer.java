@@ -6,6 +6,10 @@ public class Hammer extends Tool{
         super(owner, type, producent, numberOfTools, languagesOfInstruction);
     }
     
+    /**
+     * przesłonięcie
+     * metoda use przesłania dziedziczoną metodę use z klasy Tool 
+     */
     @Override
     public String use(){
         return "Bum, bum, bum"; 

@@ -1,12 +1,13 @@
 # MAS
 
 ## MP1
-  - Ekstensja
-  - Ekst. - trwałość
-  - Atr. złożony
-  - Atr. opcjonaln
-  - Atr. powt.
-  - Atr. klasowy
-  - Atr. pochodny
-  - Met. klasowa
-  - Przesłonięcie/przeciążenie
+  - [x] Ekstensja
+  - [x] Ekst. - trwałość
+  - [x] Atr. złożony
+  - [x] Atr. opcjonaln
+  - [x] Atr. powt.
+  - [] Atr. klasowy
+  - [x] Atr. pochodny
+  - [] Met. klasowa
+  - [x] Przesłonięcie
+  - [x] Przeciążenie

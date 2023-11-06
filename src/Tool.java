@@ -17,11 +17,11 @@ public class Tool implements Serializable {
     private static int minPeopleToUse = 1;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
-        this.owner = owner;
-        this.type = type;
+        this.owner = owner;                                   // atrybut opcjonalny - zamiast warości można podać null
+        this.type = type;                                     // atrybut złożony - przyjowany jest tutaj obiekt String
         this.producent = producent;
         this.numberOfTools = numberOfTools;
-        this.languagesOfInstruction = languagesOfInstruction;
+        this.languagesOfInstruction = languagesOfInstruction; // atrybut powtarzalny - jest użyta tutaj lista która może mieć wiele wartości
         this.dateOfAcusition = LocalDateTime.now();
         tools.add(this);
     }
@@ -38,6 +38,11 @@ public class Tool implements Serializable {
         return tools.size();
     }
 
+    /**
+     * atrybut pochodny
+     * ten atrybut jest wyliczany z innych wartości,
+     * a nie trzymany w pamięci
+     */
     public int getNumberOfInstructions(){
         return this.numberOfTools * this.languagesOfInstruction.size();
     }
@@ -46,14 +51,23 @@ public class Tool implements Serializable {
         return "Usage, usage, usage"; 
     }
 
+    // przeciążenie
     public void increseNumberOfATool(int number) {
         this.numberOfTools += number;
     }
-
-    public void increseNumberOfATool() {
+    /**
+     * przeciążenie
+     * obie funkcje increseNumberOfATool mają tą samą nazwę,
+     * ale różnią się przyjmowanymi argumentami i działaniem
+     */
+    public void increseNumberOfATool() {            // przeciążenie
         this.numberOfTools++;
     }
 
+    /**
+     * ekstencja - trwałość
+     * funkcja writeTools zapisuje obiekty do pliku by zachować ich trwałość
+     */
     public static void writeTools(ObjectOutputStream stream) throws IOException {
         stream.writeObject(tools);
     }
@@ -64,6 +78,10 @@ public class Tool implements Serializable {
             tools.add(t);
     }
 
+    /**
+     * metoda klasowa
+     * metoda klasowa działa na obiektach Tool
+     */
     public static String getFromTools(){
         return tools.toString();
     }

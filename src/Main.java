@@ -16,22 +16,22 @@ public class App {
         languages1.add("jp");
         languages1.add("hr");
 
-        Tool[] tools = {
-                new Tool(null, "machanick", null, 2, languages0),
-                new Tool("Bosh", "automatic", "A new company", 5, languages1),
-                new Hammer("me", "one-hand", null, 1, new ArrayList<>())
+        Tool[] tools = {                                        // ekstenscja - zbiór wszystkich utowrzonych obiektów
+                new Tool(null/*atrybut opcjonalny*/, "machanick", null, 2, languages0),
+                new Tool("Bosh", "automatic"/*atrybut złożony*/, "A new company", 5, languages1),
+                new Hammer("me", "one-hand", null, 1, new ArrayList<>()/*atrybut powtarzalny*/ )
         };
 
         for (Tool it : tools){
             System.out.println(it.toString());
-            System.out.println(it.use());
+            System.out.println(it.use());       // przesłonięcie 
         }
 
-        System.out.println(Tool.numberOfDifferentTools());
+        System.out.println(Tool.numberOfDifferentTools());  // atrybut złożony
 
         try {
             var out = new ObjectOutputStream(new FileOutputStream(fileName));
-            Tool.writeTools(out);
+            Tool.writeTools(out);                                             // ekstencsja - trwałość
             out.close();
 
             var in = new ObjectInputStream(new FileInputStream(fileName));
@@ -43,7 +43,13 @@ public class App {
 
         System.out.println("------------------------\n");
 
+        tools[2].increseNumberOfATool();  // przeciążenie
+        tools[2].increseNumberOfATool(5); // przeciążenie
+
+        System.out.println("------------------------\n");
+
+        System.out.println(tools[1].getNumberOfInstructions()) // atrybut pochodny
         System.out.println(Tool.numberOfDifferentTools());
-        System.out.println(Tool.getFromTools());
+        System.out.println(Tool.getFromTools());            // metoda klasowa
     }
 }
