@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tool implements Serializable {
-    private String owner;
+    public String owner;
     private String type;
     private String producent;
-    private int numberOfTools;
-    private LocalDateTime dateOfAcusition;
-    private List<String> languagesOfInstruction;
+    protected int numberOfTools;
+    public LocalDateTime dateOfAcusition;
+    public List<String> languagesOfInstruction;
     public static List<Tool> tools = new ArrayList<>();
-    private static int minPeopleToUse = 1;
+    public static int minPeopleToUse = 1;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
         this.owner = owner;
@@ -55,10 +55,6 @@ public class Tool implements Serializable {
         this.numberOfTools++;
     }
 
-    /**
-     * ekstencja - trwałość
-     * funkcja writeTools zapisuje obiekty do pliku by zachować ich trwałość
-     */
     public static void writeTools(ObjectOutputStream stream) throws IOException {
         stream.writeObject(tools);
     }
@@ -70,8 +66,8 @@ public class Tool implements Serializable {
     }
 
     // metoda klasowa
-    public static String getFromTools(){
-        return tools.toString();
+    public static int getNumberOfAllTools(){
+        return tools.size();
     }
 
     public String getOwner() {
