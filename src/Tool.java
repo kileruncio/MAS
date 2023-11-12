@@ -13,15 +13,15 @@ public class Tool implements Serializable {
     private int numberOfTools;
     private LocalDateTime dateOfAcusition;
     private List<String> languagesOfInstruction;
-    private static List<Tool> tools = new ArrayList<>();
+    public static List<Tool> tools = new ArrayList<>();
     private static int minPeopleToUse = 1;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
-        this.owner = owner;                                   // atrybut opcjonalny - zamiast warości można podać null
-        this.type = type;                                     // atrybut złożony - przyjowany jest tutaj obiekt String
+        this.owner = owner;
+        this.type = type; 
         this.producent = producent;
         this.numberOfTools = numberOfTools;
-        this.languagesOfInstruction = languagesOfInstruction; // atrybut powtarzalny - jest użyta tutaj lista która może mieć wiele wartości
+        this.languagesOfInstruction = languagesOfInstruction;
         this.dateOfAcusition = LocalDateTime.now();
         tools.add(this);
     }
@@ -38,11 +38,6 @@ public class Tool implements Serializable {
         return tools.size();
     }
 
-    /**
-     * atrybut pochodny
-     * ten atrybut jest wyliczany z innych wartości,
-     * a nie trzymany w pamięci
-     */
     public int getNumberOfInstructions(){
         return this.numberOfTools * this.languagesOfInstruction.size();
     }
@@ -55,12 +50,8 @@ public class Tool implements Serializable {
     public void increseNumberOfATool(int number) {
         this.numberOfTools += number;
     }
-    /**
-     * przeciążenie
-     * obie funkcje increseNumberOfATool mają tą samą nazwę,
-     * ale różnią się przyjmowanymi argumentami i działaniem
-     */
-    public void increseNumberOfATool() {            // przeciążenie
+
+    public void increseNumberOfATool() {
         this.numberOfTools++;
     }
 
@@ -78,10 +69,7 @@ public class Tool implements Serializable {
             tools.add(t);
     }
 
-    /**
-     * metoda klasowa
-     * metoda klasowa działa na obiektach Tool
-     */
+    // metoda klasowa
     public static String getFromTools(){
         return tools.toString();
     }
