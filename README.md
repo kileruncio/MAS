@@ -5,17 +5,17 @@
   - [x] Ekst. - trwałość
   - [x] Atr. złożony
   - [x] Atr. opcjonaln
-  - [x] Atr. powt.
+  - [x] Atr. powtarzalny
   - [x] Atr. klasowy
   - [x] Atr. pochodny
   - [x] Met. klasowa
-  - [x] Przesłonięcie/przeciążenie
+  - [x] Przesłonięcie
+  - [x] Przeciążenie
 
-## MP2
- - [x] „Zwykła”
- - [x] Z atrybutem
- - [x] Kwalifikowana
- - [x] Kompozycja
+  ## MP2
+ - [] „Zwykła”
+ - [] Z atrybutem
+ - [] Kwalifikowana
+ - [] Kompozycja
 
- 
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_

@@ -7,7 +7,8 @@ public class Hammer extends Tool {
     }
 
     @Override
-    public String use() {
-        return "Bum, bum, bum";
+    public String use(){
+        this.numberOfTools -= 1;
+        return "Bum, bum, bum"; 
     }
 }
