@@ -13,9 +13,9 @@
   - [x] Przeciążenie
 
   ## MP2
- - [] „Zwykła”
- - [] Z atrybutem
- - [] Kwalifikowana
- - [] Kompozycja
+ - [] Binarna
+ - [x] Z atrybutem
+ - [x] Kwalifikowana
+ - [x] Kompozycja
 
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
