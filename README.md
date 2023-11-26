@@ -13,7 +13,7 @@
   - [x] Przeciążenie
 
   ## MP2
- - [] Binarna
+ - [x] Binarna
  - [x] Z atrybutem
  - [x] Kwalifikowana
  - [x] Kompozycja

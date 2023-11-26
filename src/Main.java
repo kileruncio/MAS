@@ -73,19 +73,18 @@ public class Main {
         ToolShop toolShop1 = new ToolShop("cheap");
         Owner owner1 = new Owner("alice", "xx-343-yt");
 
-        // normal
         try {
-            tools[0].addToToolbox(toolbox1);
+            tools[0].addToToolbox(toolbox1); // binarna - obiekt Tool zostaje powiązany z obiektem Toolbox
         } catch (Exception exc) {
             exc.printStackTrace();
         }
 
-        System.out.println(toolbox1.getTools().toString());
+        System.out.println(toolbox1.getTools().toString()); // binarna - wypisanie kolekcji
 
         Transaction transaction = new Transaction(48.24, owner1, toolShop1); // asocjacja z atrybutem - klasa Transaction jest odpowada za atrybut w asocjacji pomiędzy Owner a Toolshop
         System.out.println(owner1.getTransactions().toString());
         System.out.println(toolShop1.getTransactions().toString());
-        System.out.println(transaction);
+        System.out.println(transaction.toString()); // asocjacja z atrybutem - wypisanie obiektu Transaction zawierającego atrybut i wiążącego ownera z toolshopem 
 
         try {
             owner1.addToolbox(toolbox1.serialNumber, toolbox1); // asocjacja kwalifikowana - Owner może posiadać wiele Toolboxów i są one jednoznacznie klasyfikowane poprzez ich numer seryjny
@@ -93,7 +92,7 @@ public class Main {
             exc.printStackTrace();
         }
 
-        System.out.println("Owner has: " + owner1.getToolboxes().toString());
+        System.out.println("Owner has: " + owner1.getToolboxes().toString()); // asocjacja kwalifikowana - wypianie kolekcji obiektów Toolbox z obiektu owner1
 
         try {
             Part.createPart("screw", tools[0]); // kompozycja - obiekty Part są powiązane z konkretnym obiektem Tool i mogą istnieć tylko gdy konkretny obiekt Tool też istnieje 
@@ -101,7 +100,7 @@ public class Main {
             exc.printStackTrace();
         }
 
-        System.out.println("Parts: " + tools[0].getParts().toString());
+        System.out.println("Parts: " + tools[0].getParts().toString()); // kompozycja - wypisanie kolekcji Parts z obiektu Tool
 
     }
 }
