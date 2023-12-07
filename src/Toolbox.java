@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 
 public class Toolbox {
+    public int serialNumber;
     private Owner owner;
     private ArrayList<Tool> tools;
 
-    public Toolbox() {
+    public Toolbox(int serialNumber) {
+        this.serialNumber = serialNumber;
         this.owner = null;
         this.tools = new ArrayList<>();
     }

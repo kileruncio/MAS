@@ -10,6 +10,7 @@ public class Main {
     final static String fileName = "data/data.kfc";
 
     public static void main(String[] args) throws Exception {
+        // -----------------------MP1-----------------------
         List<String> languages0 = new ArrayList<>();
         List<String> languages1 = new ArrayList<>();
         languages0.add("en");
@@ -31,7 +32,7 @@ public class Main {
         System.out.println(tools[2].languagesOfInstruction);
         var allTools = Tool.tools; // ekstenscja - zbiór wszystkich utowrzonych obiektów
 
-        for (Tool it : allTools){
+        for (Tool it : allTools) {
             var minPeopleToUse = Tool.minPeopleToUse; // atrybut klasowy - atrybut zaimplementowany z użyciem static
             System.out.println("" + minPeopleToUse);
             var tmp = it.use(); // przesłonięcie - funkcja use jest przesłonięta w obiekcie klasy Hammer, czyli pomimo tej samej nazy i argumentów działa inaczej
@@ -41,10 +42,10 @@ public class Main {
 
         System.out.println(Tool.numberOfDifferentTools());
 
-        // ekstencsja - trwałość, od linii 38 do 48 następuje zapis danych wraz z obsługą wyjątków
+        // ekstencsja - trwałość, od linii 46 do 56 następuje zapis danych wraz z obsługą wyjątków
         try {
             var out = new ObjectOutputStream(new FileOutputStream(fileName));
-            Tool.writeTools(out);                                             
+            Tool.writeTools(out);
             out.close();
 
             var in = new ObjectInputStream(new FileInputStream(fileName));
@@ -66,5 +67,40 @@ public class Main {
         System.out.println(Tool.numberOfDifferentTools());
         var numberOfAllTools = Tool.getNumberOfAllTools(); // metoda klasowa - nie jest wymaga utworzony obiekt klasy Tool by móc jej użyć
         System.out.println(numberOfAllTools);
+
+        // -----------------------MP2-----------------------
+        Toolbox toolbox1 = new Toolbox(596830);
+        ToolShop toolShop1 = new ToolShop("cheap");
+        Owner owner1 = new Owner("alice", "xx-343-yt");
+
+        try {
+            tools[0].addToToolbox(toolbox1); // binarna - obiekt Tool zostaje powiązany z obiektem Toolbox
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        System.out.println(toolbox1.getTools().toString()); // binarna - wypisanie kolekcji
+
+        Transaction transaction = new Transaction(48.24, owner1, toolShop1); // asocjacja z atrybutem - klasa Transaction jest odpowada za atrybut w asocjacji pomiędzy Owner a Toolshop
+        System.out.println(owner1.getTransactions().toString());
+        System.out.println(toolShop1.getTransactions().toString());
+        System.out.println(transaction.toString()); // asocjacja z atrybutem - wypisanie obiektu Transaction zawierającego atrybut i wiążącego ownera z toolshopem 
+
+        try {
+            owner1.addToolbox(toolbox1.serialNumber, toolbox1); // asocjacja kwalifikowana - Owner może posiadać wiele Toolboxów i są one jednoznacznie klasyfikowane poprzez ich numer seryjny
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        System.out.println("Owner has: " + owner1.getToolboxes().toString()); // asocjacja kwalifikowana - wypianie kolekcji obiektów Toolbox z obiektu owner1
+
+        try {
+            Part.createPart("screw", tools[0]); // kompozycja - obiekty Part są powiązane z konkretnym obiektem Tool i mogą istnieć tylko gdy konkretny obiekt Tool też istnieje 
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+        System.out.println("Parts: " + tools[0].getParts().toString()); // kompozycja - wypisanie kolekcji Parts z obiektu Tool
+
     }
 }

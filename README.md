@@ -11,3 +11,11 @@
   - [x] Met. klasowa
   - [x] Przesłonięcie
   - [x] Przeciążenie
+
+  ## MP2
+ - [x] Binarna
+ - [x] Z atrybutem
+ - [x] Kwalifikowana
+ - [x] Kompozycja
+
+_w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
