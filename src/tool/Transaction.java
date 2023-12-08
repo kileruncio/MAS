@@ -19,4 +19,9 @@ public class Transaction {
         this.owner.addTransaction(this);
         this.toolShop.addTransaction(this);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ' ' + this.dateOfTransaction.toString() + ' ' + this.owner.toString() + ' ' + this.toolShop.toString();
+    }
 }

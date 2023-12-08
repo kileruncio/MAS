@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tool implements Serializable {
-    private String owner;
+    public String owner;
     private String type;
     private String producent;
-    private int numberOfTools;
-    private LocalDateTime dateOfAcusition;
-    private List<String> languagesOfInstruction;
+    protected int numberOfTools;
+    public LocalDateTime dateOfAcusition;
+    public List<String> languagesOfInstruction;
     private List<Part> parts;
-    private static List<Tool> tools = new ArrayList<>();
-    private static int minPeopleToUse = 1;
+    public static List<Tool> tools = new ArrayList<>();
+    public static int minPeopleToUse = 1;
     private Toolbox toolbox;
 
     public Tool(String owner, String type, String producent, int numberOfTools, List<String> languagesOfInstruction) {
         this.owner = owner;
-        this.type = type;
+        this.type = type; 
         this.producent = producent;
         this.numberOfTools = numberOfTools;
         this.languagesOfInstruction = languagesOfInstruction;
@@ -74,6 +74,7 @@ public class Tool implements Serializable {
         return "Usage, usage, usage";
     }
 
+    // przeciążenie
     public void increseNumberOfATool(int number) {
         this.numberOfTools += number;
     }
@@ -92,8 +93,9 @@ public class Tool implements Serializable {
             tools.add(t);
     }
 
-    public static String getFromTools() {
-        return tools.toString();
+    // metoda klasowa
+    public static int getNumberOfAllTools(){
+        return tools.size();
     }
 
     public String getOwner() {

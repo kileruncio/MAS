@@ -7,7 +7,7 @@ public class Owner {
     private String name;
     private String address;
     private ArrayList<Transaction> transactions;
-    private Map<String, Toolbox> toolboxes = new TreeMap<>();
+    private Map<Integer, Toolbox> toolboxes = new TreeMap<>();
 
     public Owner(String name, String address) {
         this.name = name;
@@ -23,16 +23,16 @@ public class Owner {
         return this.transactions;
     }
 
-    public void addToolbox(String name, Toolbox toolbox) throws Exception {
-        if (toolboxes.get(name) == null) {
-            toolboxes.put(name, toolbox);
+    public void addToolbox(int serialNumber, Toolbox toolbox) throws Exception {
+        if (toolboxes.get(serialNumber) == null) {
+            toolboxes.put(serialNumber, toolbox);
             toolbox.setOwner(this);
         }else
             throw new Exception("Aleady in collection");
 
     }
 
-    public Map<String, Toolbox> getToolboxes() {
+    public Map<Integer, Toolbox> getToolboxes() {
         return this.toolboxes;
     }
     // kwalifikowana z toolbox
