@@ -4,7 +4,29 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import companies.Company;
+import companies.Corporation;
+import companies.Employee;
+import companies.EmployeeType;
+import companies.OnePersonBuisness;
+import companies.SmallBuisness;
+import games.BoardMultiplayerGame;
+import games.Controler;
+import games.FabularDigitalGame;
+import games.Game;
+import games.Guitar;
+import games.Keyboard;
+import tool.Hammer;
+import tool.Owner;
+import tool.Part;
+import tool.Screwdriver;
+import tool.Tool;
+import tool.ToolShop;
+import tool.Toolbox;
+import tool.Transaction;
 
 public class Main {
     final static String fileName = "data/data.kfc";
@@ -21,7 +43,7 @@ public class Main {
         Tool[] tools = {
                 new Tool("LG", "machanick", null, 2, languages0),
                 new Tool("Bosh", "automatic", "A new company", 5, languages1),
-                new Hammer("me", "one-hand", null, 10, new ArrayList<>()/**/)
+                new Hammer("me", "one-hand", null, 10, new ArrayList<>())
         };
 
         tools[0].owner = null; // atrybut opcjonalny - można to umieścić wartość lub podać null
@@ -102,5 +124,54 @@ public class Main {
 
         System.out.println("Parts: " + tools[0].getParts().toString()); // kompozycja - wypisanie kolekcji Parts z obiektu Tool
 
+        // -----------------------MP3-----------------------
+
+        // disjoint - klasy screwdriver oraz hammer są implementowane poprzez disjoint, jest to dziedziczenie rozłączne  
+        Tool narzedzie = new Tool("Bosh", "automatic", "A new company", 5, languages1);
+        Screwdriver screwdriver = new Screwdriver("Maciej P", "krzyżakowo", null, 1, "red", languages1);
+        Hammer hammer = new Hammer("me", "one-hand", null, 10, new ArrayList<>());
+
+        System.out.println("Color of a screwdriver: " + screwdriver.getColor());
+        System.out.println(hammer.use());
+        System.out.println(narzedzie.use());
+
+        ArrayList<Company> companies = new ArrayList<>(); // klasa abstrakcyjna  - powstaje tutaj lista przechowująca obiekty dziedziczące z klasy abstrakcyjnej, dlatego chodź nie są to obiekty klasy Company mogą one być w tej kolekcji
+        companies.add(new SmallBuisness("Topolowa 8, 00-999 Warcaby", "Wyroby Tomka"));
+        companies.add(new Corporation("USA", "Nivea"));
+
+        for (Company company : companies)
+            System.out.println("Profit of a company: " + company.getProfit());
+
+        ArrayList<Employee> employees = new ArrayList<>(); // overlapping - w tej kolekcji powajwiają się obiekty które mogą należeć do kilku klas na raz np do klasy student i underage
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.EMPLOYEE), true));
+        employees.add(new Employee("MK", true, 3500.50, Arrays.asList(EmployeeType.STUDENT, EmployeeType.UNDERAGE), true));
+
+        for (Employee employee : employees)
+            System.out.println("Real salary: " + employee.getRealSalary()); // polimofriczne wywołanie metody - metoda działa inaczej zależnie od właściwej klasy obiektu, w tym trydnym przypadku jest to zależne od obiektu jak i wartości pola employeeType
+
+        OnePersonBuisness wyrobyKrawieckie = new OnePersonBuisness(
+            "Taka brama. 07-007 Bulb", "Wyroby Krawieckie", 1993,0.17
+            ); // wielodziedziczenie - klasa OnePersonBuisness dziedziczy z klas SmallBuisness oraz Personable
+        System.out.println("Wiek: " + wyrobyKrawieckie.getAge());
+        System.out.println("Zarobek: " + wyrobyKrawieckie.getProfit());
+        System.out.println("Pieniądze po podatku: " + wyrobyKrawieckie.moneyAfterTax());
+
+        ArrayList<Game> games = new ArrayList<>(); // wieloaspektowe - obiekty dziedziczą wieloapektowo po kalsie Game, gry mogą być cyforwe lub wieloosobowe (widać to po konstruktorze), pojawiają się jako przykłady gry planszowe oraz fabularne
+        games.add(new BoardMultiplayerGame("lego", 120.0, 3, "dixit", 300));
+        games.add(new FabularDigitalGame("EA", 260.0, "at least one brain", 4));
+
+        for (Game game : games) {
+            if (game.hasNumberOfRequiredPlayers())
+                System.out.println("Liczba wymaganych graczy: " + game.getNumberOfRequiredPlayers());
+            else if (game.hasRequirements())
+                System.out.println("Wymagania: " + game.getRequirements());
+        }
+
+        Controler controler = new Keyboard("MSI", 2137, "chiness"); // dynamiczne - poprzez opcjonalne kopiowanie poprzedniego obiektu obiekt klasy Keyboard może stać się obiektem klasy Guitar i z powrotem
+        System.out.println(controler.toString());
+        controler = new Guitar(controler, 2);
+        System.out.println(controler.toString());
+        controler = new Keyboard(controler, "English simplified");
+        System.out.println(controler.toString());
     }
 }

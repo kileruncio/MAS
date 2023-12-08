@@ -19,3 +19,12 @@
  - [x] Kompozycja
 
 _w każdym przypadku: liczności 1-* lub *-* oraz automatyczne tworzenie poł. zwrotnego_
+
+## MP3
+ - [x] Klasa abstrakcyjna 
+ - [x] Disjoint
+ - [x] Polimorficzne wywołanie metody
+ - [x] Overlapping
+ - [x] Wielodziedziczenie
+ - [x] Wieloaspektowe
+ - [x] Dynamiczne
